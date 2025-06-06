@@ -1,0 +1,6 @@
+{
+  "bindings": [
+    { "type":"rabbitMQTrigger", "direction":"in", "name":"msg", "queueName":"urlqueue", "connectionStringSetting":"RabbitMQConnectionAppSetting" }
+  ]
+}
+
