@@ -1,36 +1,15 @@
+import logging
 import azure.functions as func
+import os
 
-app = func.FunctionApp()
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('GUI Function triggered.')
 
-@app.route(route="", methods=["GET"])
-def show_gui(req: func.HttpRequest) -> func.HttpResponse:
-    html = """
-    <!DOCTYPE html>
-    <html>
-    <head><title>Skracacz URL</title></head>
-    <body>
-        <h1>Skracacz Linków</h1>
-        <form id="form">
-            <input type="url" id="url" placeholder="https://example.com" required>
-            <button type="submit">Skróć</button>
-        </form>
-        <div id="result"></div>
-        
-        <script>
-        document.getElementById('form').onsubmit = async (e) => {
-            e.preventDefault();
-            const url = document.getElementById('url').value;
-            const response = await fetch('/api/shorten', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({url: url})
-            });
-            const data = await response.json();
-            document.getElementById('result').innerHTML = 
-                `<p>Skrócony link: <a href="/${data.hash}">${window.location.origin}/${data.hash}</a></p>`;
-        };
-        </script>
-    </body>
-    </html>
-    """
-    return func.HttpResponse(html, mimetype="text/html")
+    html_path = os.path.join(os.path.dirname(__file__), 'index.html')
+    try:
+        with open(html_path, 'r', encoding='utf-8') as f:
+            html_content = f.read()
+        return func.HttpResponse(html_content, mimetype="text/html")
+    except Exception as e:
+        logging.error(f"Error reading HTML file: {e}")
+        return func.HttpResponse("Internal Server Error", status_code=500)

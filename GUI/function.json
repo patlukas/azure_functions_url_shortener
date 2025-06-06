@@ -1,7 +1,17 @@
 {
+  "scriptFile": "__init__.py",
   "bindings": [
-    { "authLevel":"anonymous", "type":"httpTrigger", "direction":"in", "name":"req", "methods":["get","post"], "route": "" },
-    { "type":"http", "direction":"out", "name":"res" },
-    { "type":"rabbitMQ", "direction":"out", "name":"outputMessage", "queueName":"urlqueue", "connectionStringSetting":"RabbitMQConnectionAppSetting" }
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": ["get"],
+      "route": ""
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
   ]
 }
