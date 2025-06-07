@@ -3,13 +3,18 @@
   "logging": {
     "applicationInsights": {
       "samplingSettings": {
-        "isEnabled": true
+        "isEnabled": true,
+        "excludedTypes": "Request"
       }
     }
   },
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[2.*, 3.0.0)"
+  },
   "extensions": {
-        "http": {
-            "routePrefix": ""
-        }
+    "http": {
+        "routePrefix": ""
     }
+  }
 }
