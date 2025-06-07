@@ -2,6 +2,8 @@
   "IsEncrypted": false,
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "python",
-    "AzureWebJobsStorage": "UseDevelopmentStorage=true"
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=urlshorts;AccountKey=L/dnu4KAfyYp0hPkDscy8G1ZxPkrEk+K2sC9m0oAjhpKfxQARy6nX2NHnsdayMQuj7+iN/1FkHmG+AStMqLuEQ==;EndpointSuffix=core.windows.net",
+    "SERVICE_DB_URL": "http://localhost:7071/api/resolve",
+    "A": "B"
   }
 }
