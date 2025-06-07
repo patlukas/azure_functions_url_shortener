@@ -1,15 +1,19 @@
-import logging
-import azure.functions as func
-import os
+from flask import Flask
 
-def main(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('GUI Function triggered.')
 
-    html_path = os.path.join(os.path.dirname(__file__), 'index.html')
-    try:
-        with open(html_path, 'r', encoding='utf-8') as f:
-            html_content = f.read()
-        return func.HttpResponse(html_content, mimetype="text/html")
-    except Exception as e:
-        logging.error(f"Error reading HTML file: {e}")
-        return func.HttpResponse("Internal Server Error", status_code=500)
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return (
+        "Try /hello/Chris for parameterized Flask route.\n"
+        "Try /module for module import guidance"
+    )
+
+@app.route("/hello/<name>", methods=['GET'])
+def hello(name: str):
+    return f"hello {name}"
+
+
+if __name__ == "__main__":
+    app.run()
