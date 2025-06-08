@@ -1,6 +1,8 @@
 import hashlib
 import json
 import azure.functions as func
+import logging
+
 
 HTML_FORM = """
 <html>
@@ -22,7 +24,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         if not url:
             return func.HttpResponse("No URL provided", status_code=400)
 
-        short_hash = hashlib.sha256(url.encode()).hexdigest()[:6]
+        short_hash = hashlib.sha256(url.encode()).hexdigest()[:5]
+        logging.info(f'GUI: hash={short_hash}')
 
         message = json.dumps({"hash": short_hash, "url": url})
         # outputMessage.set(message)
