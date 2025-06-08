@@ -17,6 +17,13 @@
         "type": "http",
         "direction": "out",
         "name": "$return"
+      },
+      {
+        "type": "serviceBus",
+        "direction": "out",
+        "connection": "ServiceBusConnection",
+        "name": "outputMessage",
+        "queueName": "urlqueue"
       }
     ]
   }

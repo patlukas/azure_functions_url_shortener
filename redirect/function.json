@@ -7,7 +7,7 @@
         "type":"httpTrigger",
         "direction":"in",
         "name":"req",
-        "route":"redirect/{hash}", 
+        "route":"r/{hash}", 
         "methods":["get"]
       },
       {
