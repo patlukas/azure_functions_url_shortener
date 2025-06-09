@@ -2,10 +2,10 @@
   "IsEncrypted": false,
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "python",
-    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=urlshorts;AccountKey=L/dnu4KAfyYp0hPkDscy8G1ZxPkrEk+K2sC9m0oAjhpKfxQARy6nX2NHnsdayMQuj7+iN/1FkHmG+AStMqLuEQ==;EndpointSuffix=core.windows.net",
+    "AzureWebJobsStorage": "<TwójConnectionString>",
     "SERVICE_DB_URL": "http://localhost:7071/api/resolve",
     "SERVICE_GUI_URL": "http://localhost:7071/GUI",
-    "ServiceBusConnection": "Endpoint=sb://urlqueue.servicebus.windows.net/;SharedAccessKeyName=main;SharedAccessKey=k228+1tURsOxhFaaNVAJeT8p1ckptCnuR+ASbPUdFKw=",
+    "ServiceBusConnection": "<TwójConnectionString>",
     "SERVICE_REDIRECT_URL": "http://localhost:7071/r"
   }
 }
