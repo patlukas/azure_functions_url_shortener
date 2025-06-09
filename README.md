@@ -90,6 +90,8 @@ ServiceBusConnection=<connection-string-do-service-bus>
 
 ---
 
+![](https://github.ct8.pl/readme/patlukas/azure_functions_url_shortener)
+
 ## 🚀 Uruchamianie lokalne
 
 1. Skonfiguruj `local.settings.json`:
